@@ -1,0 +1,10 @@
+
+
+Files for the Joystick include file can be found here:
+
+https://github.com/MHeironimus/ArduinoJoystickLibrary
+
+
+Files for the HX711 Scale include file:
+
+https://github.com/bogde/HX711
