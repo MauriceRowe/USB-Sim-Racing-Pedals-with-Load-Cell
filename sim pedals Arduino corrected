@@ -1,0 +1,81 @@
+
+  
+#include <HX711.h>
+#include <Joystick.h>
+HX711 scale(0, 1);
+Joystick_ Joystick;
+
+void setup() {
+
+   pinMode(20, INPUT);        
+   pinMode(21, INPUT);           
+ 
+   pinMode(4, INPUT_PULLUP);
+   pinMode(5, INPUT_PULLUP);
+   pinMode(6, INPUT_PULLUP);
+   pinMode(7, INPUT_PULLUP);
+   pinMode(8, INPUT_PULLUP);
+   pinMode(9, INPUT_PULLUP);
+   pinMode(10, INPUT_PULLUP);
+   pinMode(16, INPUT_PULLUP);
+   pinMode(14, INPUT_PULLUP);
+   pinMode(15, INPUT_PULLUP);
+   pinMode(18, INPUT_PULLUP);
+   pinMode(19, INPUT_PULLUP);
+  
+
+  scale.set_scale(-5000);
+  Joystick.begin();
+  Serial.begin(28800);
+}
+ 
+int lastButtonState[4] = {0,0,0,0};
+  
+void loop() {
+
+if(digitalRead(4)== LOW){ Joystick.setButton(1, HIGH);}
+else{ Joystick.setButton(1, LOW);} 
+ 
+if(digitalRead(5)== LOW){ Joystick.setButton(2, HIGH);}
+else{ Joystick.setButton(2, LOW);} 
+
+ if(digitalRead(6)== LOW){ Joystick.setButton(3, HIGH);}
+else{ Joystick.setButton(3, LOW);} 
+
+ if(digitalRead(7)== LOW){ Joystick.setButton(4, HIGH);}
+else{ Joystick.setButton(4, LOW);} 
+
+ if(digitalRead(8)== LOW){ Joystick.setButton(5, HIGH);}
+else{ Joystick.setButton(5, LOW);} 
+
+ if(digitalRead(9)== LOW){ Joystick.setButton(6, HIGH);}
+else{ Joystick.setButton(6, LOW);} 
+
+ if(digitalRead(10)== LOW){ Joystick.setButton(7, HIGH);}
+else{ Joystick.setButton(7, LOW);} 
+
+ if(digitalRead(16)== LOW){ Joystick.setButton(8, HIGH);}
+else{ Joystick.setButton(8, LOW);} 
+
+ if(digitalRead(14)== LOW){ Joystick.setButton(9, HIGH);}
+else{ Joystick.setButton(9, LOW);} 
+
+ if(digitalRead(15)== LOW){ Joystick.setButton(10, HIGH);}
+else{ Joystick.setButton(10, LOW);} 
+
+if(digitalRead(18)== LOW){ Joystick.setButton(11, HIGH);}
+else{ Joystick.setButton(11, LOW);} 
+
+ if(digitalRead(19)== LOW){ Joystick.setButton(12, HIGH);}
+else{ Joystick.setButton(12, LOW);} 
+ 
+  
+ 
+Joystick.setXAxis(analogRead(20);
+delay(10);
+Joystick.setYAxis(analogRead(21);
+delay(10);
+Joystick.setZAxis(abs(scale.get_units(1)));
+ 
+
+}
